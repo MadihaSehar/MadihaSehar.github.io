@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madiha Sehar | SOC Analyst &amp; Cybersecurity Researcher</title>
+<meta name="description" content="Portfolio of Madiha Sehar, a cybersecurity graduate focused on SOC operations, SIEM analysis, threat detection, phishing forensics and security automation.">
+<meta name="theme-color" content="#0d1210">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Madiha Sehar | SOC Analyst &amp; Cybersecurity Researcher">
+<meta property="og:description" content="SIEM, threat detection, phishing forensics and SOC automation projects.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1210'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%233ddc97'%3EMS%3C/text%3E%3C/svg%3E">
+
+<style>
+/* ============ 1. DESIGN TOKENS (change colours here) ============ */
+:root{
+  --accent:#3ddc97;           /* primary accent: change this one value to recolour the site */
+  --accent-soft:rgba(61,220,151,.12);
+  --bg:#0d1210;
+  --surface:#141b18;
+  --surface-2:#1a2420;
+  --line:#26332d;
+  --text:#e8eeeb;
+  --muted:#9aa9a2;
+  --radius:14px;
+  --radius-sm:8px;
+  --width:1080px;
+  --space:clamp(64px,9vw,112px);
+  --font:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Consolas,monospace;
+}
+
+/* ============ 2. RESET & BASE ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--font);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+ul{margin:0;padding:0;list-style:none}
+.wrap{width:min(100% - 40px,var(--width));margin-inline:auto}
+section{padding-block:var(--space);border-top:1px solid var(--line)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#06100b;padding:8px 14px;border-radius:var(--radius-sm);z-index:100}
+.skip:focus{left:8px}
+
+/* ============ 3. TYPOGRAPHY ============ */
+h1,h2,h3{line-height:1.15;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:650;margin-bottom:12px}
+h3{font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:62ch;margin:0 0 40px}
+.meta{color:var(--muted);font-size:.9rem}
+code,.mono{font-family:var(--mono);font-size:.85em}
+
+/* ============ 4. NAVIGATION ============ */
+header{position:sticky;top:0;z-index:50;background:rgba(13,18,16,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:700;color:var(--text);letter-spacing:-.01em}
+.brand:hover{text-decoration:none}
+#nav-links{display:flex;gap:4px}
+#nav-links a{color:var(--muted);padding:8px 12px;border-radius:var(--radius-sm);font-size:.92rem}
+#nav-links a:hover{color:var(--text);text-decoration:none}
+#nav-links a.active{color:var(--accent);background:var(--accent-soft)}
+#menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:var(--radius-sm);padding:8px 14px;font:inherit;cursor:pointer}
+
+/* ============ 5. HERO ============ */
+#home{border-top:0;padding-block:clamp(56px,9vw,104px) var(--space)}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center}
+.hero .role{font-size:clamp(1.1rem,2vw,1.4rem);color:var(--accent);margin:14px 0 6px;font-weight:550}
+.hero .focus{color:var(--muted);margin:0 0 20px}
+.hero .intro{max-width:56ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.avatar{aspect-ratio:1;max-width:300px;width:100%;margin-inline:auto;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar span{font-size:4rem;font-weight:700;color:var(--accent);letter-spacing:-.04em}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:48px}
+.facts div{border-left:2px solid var(--accent);padding-left:14px;color:var(--muted);font-size:.92rem}
+.facts strong{display:block;color:var(--text);font-weight:600}
+
+/* ============ 6. BUTTONS & CARDS ============ */
+.btn{display:inline-block;padding:11px 20px;border-radius:var(--radius-sm);font-weight:600;font-size:.95rem;border:1px solid var(--line);color:var(--text);background:var(--surface);transition:border-color .2s,background .2s}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:#06100b;border-color:var(--accent)}
+.btn.primary:hover{background:#5fe8ad}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:border-color .2s}
+.card:hover{border-color:#34473e}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:.8rem;padding:3px 10px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+.badge{font-size:.78rem;padding:2px 10px;border-radius:99px;border:1px solid var(--accent);color:var(--accent);white-space:nowrap}
+.badge.alt{border-color:var(--line);color:var(--muted)}
+.note{color:var(--muted);font-size:.88rem;border-left:2px solid var(--line);padding-left:12px;margin:12px 0 0}
+.placeholder{outline:1px dashed #c9a227;outline-offset:2px}
+
+/* ============ 7. CONTENT SECTIONS ============ */
+.grid{display:grid;gap:20px}
+.grid.two{grid-template-columns:repeat(2,1fr)}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.about-grid p{margin:0 0 16px;max-width:64ch}
+.timeline{display:grid;gap:20px;border-left:1px solid var(--line);padding-left:28px}
+.entry{position:relative}
+.entry::before{content:"";position:absolute;left:-34px;top:30px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.entry header{position:static;background:none;border:0;backdrop-filter:none;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:8px}
+.entry ul,.proj ul{display:grid;gap:8px;margin-top:12px;color:#c9d4cf;font-size:.95rem}
+.entry li,.proj li{padding-left:16px;position:relative}
+.entry li::before,.proj li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:1px;background:var(--accent)}
+.proj h4{margin:18px 0 2px;font-size:.88rem;color:var(--muted);font-weight:600}
+.proj p{margin:4px 0 0;font-size:.95rem}
+.proj .links{display:flex;gap:14px;margin-top:16px;flex-wrap:wrap;font-size:.92rem}
+.skills h3{margin-bottom:4px}
+.cert{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.cert:last-child{border:0}
+.cert-list{padding-block:8px}
+.contact-list{display:grid;gap:12px;margin-top:8px}
+.contact-list a,.contact-list span.item{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text)}
+.contact-list a:hover{border-color:var(--accent);text-decoration:none}
+.contact-list .k{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.88rem}
+
+/* ============ 8. ANIMATIONS (one hero entrance only) ============ */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero>*{animation:rise .7s ease both}
+.hero>*:nth-child(2){animation-delay:.12s}
+
+/* ============ 9. RESPONSIVE ============ */
+@media (max-width:860px){
+  .hero,.about-grid,.grid.two,.grid.three{grid-template-columns:1fr}
+  .avatar{max-width:200px;order:-1;margin-inline:0}
+  #menu-btn{display:block}
+  #nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 20px 16px}
+  #nav-links.open{display:flex}
+  #nav-links a{padding:12px}
+}
+
+/* ============ 10. ACCESSIBILITY ============ */
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ================= NAVIGATION ================= -->
+<header>
+  <nav class="wrap" aria-label="Primary">
+    <a class="brand" href="#home">Madiha Sehar</a>
+    <button id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <div id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section id="home" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1 id="hero-title">Madiha Sehar</h1>
+        <p class="role">SOC Analyst &amp; Cybersecurity Researcher</p>
+        <p class="focus">Threat detection, SIEM analysis, phishing forensics and security automation</p>
+        <p class="intro">I am a BS Cybersecurity graduate (MUET Jamshoro, 2026) who has completed SOC and security internships and built SIEM, threat-intelligence and SOAR projects. I am looking for SOC Analyst L1, Junior SOC Analyst, Cybersecurity Analyst and Blue Team roles.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View my projects</a>
+          <!-- RESUME LINK: replace the file name if yours differs -->
+          <a class="btn" id="resume-link" href="Madiha_Sehar_CV.pdf" download>View resume</a>
+          <a class="btn" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <!-- PROFILE IMAGE: add src="your-photo.jpg" to the img below and remove the span -->
+      <div class="avatar" id="avatar">
+        <span aria-hidden="true">MS</span>
+      </div>
+    </div>
+    <div class="facts">
+      <div><strong>3 internships and training programmes</strong>ISPR, Deca Labs, TechBiz (2026)</div>
+      <div><strong>3 SOC platform projects</strong>SIEM, threat intel and SOAR</div>
+      <div><strong>Google Cybersecurity Certificate</strong>Completed June 2025</div>
+      <div><strong>madiha56sehar@gmail.com</strong>Open to junior SOC roles</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <h2 id="about-title">About</h2>
+    <div class="about-grid">
+      <div>
+        <p>I work on the defensive side of security: monitoring logs, triaging alerts, investigating suspicious activity and documenting what I find. My practical work covers Splunk, Wazuh and ELK, Windows event analysis, network traffic review in Wireshark and phishing investigation.</p>
+        <p>I also write Python and build small tools around my SOC work, including alert enrichment, risk scoring and playbook automation. Alongside this I have studied ethical hacking and digital forensics, and I have taught AI and programming to students.</p>
+      </div>
+      <div class="card">
+        <h3>Education</h3>
+        <p class="meta" style="margin:6px 0 0">BS Cybersecurity, 2022 to 2026<br>Mehran University of Engineering and Technology, Jamshoro</p>
+        <h3 style="margin-top:20px">Achievements</h3>
+        <ul id="achievements" style="margin-top:8px;display:grid;gap:6px;color:#c9d4cf;font-size:.93rem"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE (rendered from EXPERIENCE array in script) ================= -->
+<section id="experience" aria-labelledby="exp-title">
+  <div class="wrap">
+    <h2 id="exp-title">Experience</h2>
+    <p class="lead">Internships, training and teaching. Personal projects are listed separately under Projects.</p>
+    <div class="timeline" id="experience-list"></div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS (rendered from PROJECTS array in script) ================= -->
+<section id="projects" aria-labelledby="proj-title">
+  <div class="wrap">
+    <h2 id="proj-title">Projects</h2>
+    <p class="lead">Independent and academic projects. Each card states what is built, and where a component is simulated it says so.</p>
+    <div class="grid two" id="project-list"></div>
+  </div>
+</section>
+
+<!-- ================= SKILLS (rendered from SKILLS object in script) ================= -->
+<section id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <h2 id="skills-title">Technical skills</h2>
+    <p class="lead">Grouped by the work they support. Every item comes from my resume.</p>
+    <div class="grid three skills" id="skill-list"></div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS (rendered from CERTS array in script) ================= -->
+<section id="certifications" aria-labelledby="cert-title">
+  <div class="wrap">
+    <h2 id="cert-title">Certifications and training</h2>
+    <p class="lead">Certificates, internships and competitions as listed on my resume.</p>
+    <div class="card cert-list" id="cert-list"></div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH ================= -->
+<section id="research" aria-labelledby="res-title">
+  <div class="wrap">
+    <h2 id="res-title">Investigations and write-ups</h2>
+    <p class="lead">Hands-on analysis from labs and training. These are practice investigations, not client work, and none involve published vulnerabilities.</p>
+    <div class="grid three" id="research-list"></div>
+    <p class="note placeholder">Placeholder: add links to published reports or blog write-ups here when they are ready.</p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <h2 id="contact-title">Contact</h2>
+    <p class="lead">I am open to SOC Analyst L1, Junior SOC Analyst, Cybersecurity Analyst and Blue Team roles. Email is the quickest way to reach me.</p>
+    <div class="contact-list" id="contact-list"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span id="year"></span> Madiha Sehar. Built as a single HTML file.</div>
+</footer>
+
+<noscript><div class="wrap"><p class="note">JavaScript is off, so project, experience and skill lists cannot load. Please download my resume (Madiha_Sehar_CV.pdf) or email madiha56sehar@gmail.com.</p></div></noscript>
+
+<script>
+/* =====================================================================
+   CONTENT DATA - EDIT HERE (see maintenance guide)
+   Each array below is rendered into its section automatically.
+   ===================================================================== */
+
+const CONTACT = {
+  email: "madiha56sehar@gmail.com",
+  github: "https://github.com/MadihaSehar",
+  linkedin: "",                 // PLACEHOLDER: paste your LinkedIn URL
+  resume: "Madiha_Sehar_CV.pdf",// path to your resume file
+  phone: "0332 2346025"
+};
+
+const ACHIEVEMENTS = [
+  "2nd position, CyberArena cybersecurity hackathon (Oct 2025)",
+  "Top 5, Ignite Workshop Hackathon (Sep 2024)",
+  "Gold Medalist, Ethical Hacking course (PITP, Feb 2024)",
+  "Best Diplomat, MUN 2025",
+  "Ranked 2nd in Python development at university"
+];
+
+/* type: "Internship" | "Training" | "Teaching" */
+const EXPERIENCE = [
+  { role:"Cybersecurity Intern", org:"ISPR, Hyderabad", dates:"From 29 July 2026", type:"Internship",
+    note:"Placeholder: add your completion date.",
+    points:[
+      "Worked on threat analysis, target monitoring and situational awareness in day-to-day monitoring tasks.",
+      "Reviewed live threat scenarios and cases, and practised risk assessment and prioritisation when flagging and escalating findings."
+    ]},
+  { role:"Cybersecurity Intern", org:"Deca Labs (remote)", dates:"20 Jul to 31 Aug 2026", type:"Internship",
+    points:[
+      "Security monitoring and threat detection across live environments.",
+      "SIEM and log analysis to spot and trace suspicious activity.",
+      "Supported incident detection and response for flagged alerts, and contributed to team reporting."
+    ]},
+  { role:"SOC Analyst (Cybersecurity) training", org:"TechBiz (remote)", dates:"July 2026", type:"Training",
+    points:[
+      "Covered security monitoring, log analysis, SIEM operations, network traffic analysis, threat intelligence, phishing investigation and incident response.",
+      "Finished with an end-to-end incident response capstone and a SOC incident report."
+    ]},
+  { role:"AI Teaching Workshop instructor", org:"Cadet College Petaro", dates:"15 Jun to 15 Jul 2026", type:"Teaching",
+    points:["Taught AI fundamentals to students."]},
+  { role:"English Language Tutor and Java Programming Tutor (online)", org:"Cadet College Petaro", dates:"Jun to Jul 2025", type:"Teaching",
+    points:["Tutored English at Cadet College Petaro (July 2025) and Java online (June 2025)."]}
+];
+
+/* status: text shown in the badge. links: [label, url] pairs. */
+const PROJECTS = [
+  { title:"AegisSOC: distributed SIEM and threat intelligence platform", year:"2026", status:"Independent project",
+    overview:"A small SIEM that collects Windows security events from several machines and shows detections on a live dashboard.",
+    problem:"Lateral movement and brute-force attempts are hard to see when logs stay on individual endpoints.",
+    built:[
+      "Python agent that forwards Windows Security events (IDs 4624, 4625, 4688, 1102, 5156) from Windows, Linux and macOS endpoints to a central server.",
+      "FastAPI and WebSocket backend with detection for RDP and SMB brute-force attempts; handled 200+ events per second across test nodes.",
+      "Correlation to MITRE ATT&CK techniques T1059.001, T1110.001 and T1070.001.",
+      "React and Tailwind dashboard with KQL-style log search, live events-per-second charts and host isolation playbooks."
+    ],
+    tech:["Python","FastAPI","WebSockets","React 18","Tailwind CSS","MITRE ATT&CK"],
+    links:[["GitHub","https://github.com/MadihaSehar/AegisSOC-SIEM-Dashboard"]]},
+  { title:"AEGIS ThreatIntel AI: threat intelligence and alert triage", year:"2026", status:"Independent project",
+    overview:"Enriches Wazuh alerts with public threat intelligence and writes a plain-English summary for the analyst.",
+    problem:"Analysts lose time checking each source IP across several intelligence sites by hand.",
+    built:[
+      "Flask API that combines VirusTotal, AbuseIPDB, AlienVault OTX and ThreatFox into a 0 to 100 risk score for IP indicators.",
+      "Pipeline that ingests Wazuh alerts, extracts source IPs and checks them against those feeds.",
+      "AI assessment that turns telemetry into incident summaries and downloadable Markdown SOC reports.",
+      "Firewall rule generator for UFW, iptables, Cisco ASA, Palo Alto CLI and Cloudflare WAF."
+    ],
+    tech:["Python","Flask","React","Vite","Wazuh","Threat intel APIs"],
+    links:[["GitHub","https://github.com/MadihaSehar/Threat-Intel-Ai-Automation"]]},
+  { title:"SOAR-Lite: security orchestration and response", year:"2026", status:"Independent project, simulated connectors",
+    overview:"A SOAR prototype that receives SIEM alert webhooks and runs containment playbooks.",
+    problem:"Manual response to repeat alerts is slow and inconsistent.",
+    built:[
+      "Ingests webhook alerts from Wazuh, Elastic Security and Splunk.",
+      "Risk-confidence engine using VirusTotal reputation and SIEM severity: high-confidence alerts trigger containment, low-confidence ones go to an analyst review queue.",
+      "Connectors for Palo Alto, CrowdStrike Falcon, Entra ID/Okta, TheHive and Slack. These are simulated, not live integrations.",
+      "MITRE ATT&CK mapping, an audit-trail viewer with request and response logs, and a drag-and-drop playbook builder."
+    ],
+    tech:["Python","FastAPI","React","Tailwind CSS","REST APIs","MITRE ATT&CK"],
+    results:"Resume reports response time dropping from a roughly 45-minute manual baseline to near real-time in simulation.",
+    links:[["GitHub","https://github.com/MadihaSehar/SOAR-lite_automation"]]},
+  { title:"Phishing detection system and email forensics hub", year:"2025", status:"Independent project",
+    overview:"A header-analysis workflow for phishing emails with a risk-scoring tool.",
+    problem:"Spoofed and typosquatted emails pass casual inspection.",
+    built:[
+      "Analysed 15 phishing email scenarios (RFC 822) with PhishTool, MXToolbox and URLScan.io, checking SPF, DKIM and DMARC alignment.",
+      "Email-header parser with a 0 to 100 risk score, connected to an ELK view for attacker IP location and lookalike domains.",
+      "Five-step triage decision tree and response matrix for credential revocation and blocklisting."
+    ],
+    tech:["Email forensics","SPF/DKIM/DMARC","ELK Stack","PhishTool","URLScan.io"],
+    links:[["GitHub","https://github.com/MadihaSehar/Phishing_Detection_System-Analysis"]]},
+  { title:"SOC analyst training projects", year:"July 2026", status:"Training (TechBiz)",
+    overview:"Lab work in a virtual environment covering the SOC workflow from detection to reporting.",
+    problem:"Practising detection and investigation on realistic Windows and Linux logs.",
+    built:[
+      "Deployed Splunk and Wazuh, ingested Windows and Linux logs, and built dashboards and alerts for abnormal logins.",
+      "Investigated brute-force logons through Event IDs 4624 and 4625 and built incident timelines.",
+      "Analysed email headers, URLs and attachments, checked IOCs in VirusTotal and AbuseIPDB, and used Wireshark filters on suspicious traffic."
+    ],
+    tech:["Splunk","Wazuh","Wireshark","VirusTotal","AbuseIPDB","Kali Linux"],
+    links:[]},
+  { title:"n8n workflow automation and JARVIS voice assistant", year:"2026", status:"Independent projects",
+    overview:"Smaller automation projects built with Python and n8n.",
+    problem:"Repetitive tasks such as job screening, inbox sorting and daily news reading.",
+    built:[
+      "Three scheduled n8n workflows using Gemini or OpenAI: a job matcher, a Gmail classifier and reply drafter, and a daily cyber news digest from The Hacker News RSS.",
+      "JARVIS, a Python desktop voice assistant using offline speech recognition, SAPI5 speech output and OpenAI function calling."
+    ],
+    tech:["n8n","Python","OpenAI API","Gemini API","Telegram"],
+    links:[["Job matcher","https://github.com/MadihaSehar/job-resume-automation"],["Email classifier","https://github.com/MadihaSehar/Email_summarizer"],["Cyber digest","https://github.com/MadihaSehar/daily-cyber-digest"],["JARVIS","https://github.com/MadihaSehar/My_Own_Assistant"]]}
+];
+
+const SKILLS = {
+  "Security operations":["SOC monitoring and triage","SIEM","Log analysis","Threat detection","Incident response"],
+  "SIEM and tools":["Splunk","Wazuh","ELK Stack","Wireshark","VirusTotal","AbuseIPDB","AlienVault OTX","ThreatFox"],
+  "Investigation":["Email and phishing forensics","SPF / DKIM / DMARC","Threat intelligence","MITRE ATT&CK mapping"],
+  "Offensive security":["Ethical hacking","Penetration testing","TryHackMe","LetsDefend","CyberDefenders"],
+  "Programming and automation":["Python","Java","Flask","FastAPI","React","Tailwind CSS","n8n","Git and GitHub"],
+  "Systems":["Linux (Ubuntu, Kali)","Windows","VirtualBox"]
+};
+
+/* status: "Earned" | "Competition" | "Internship" | "Course" */
+const CERTS = [
+  { name:"Google Cybersecurity Professional Certificate", org:"Coursera", date:"24 June 2025", status:"Earned", link:"https://coursera.org/verify/professional-cert/M9TIWINV46S" },
+  { name:"Ethical Hacking (CEH), Gold Medalist", org:"PITP", date:"3 months, Feb 2024", status:"Earned" },
+  { name:"Cybersecurity Hackathon, 2nd position", org:"CyberArena", date:"Oct 2025", status:"Competition" },
+  { name:"Cybersecurity Hackathon, Top 5", org:"Ignite Workshop", date:"Sep 2024", status:"Competition" },
+  { name:"Cybersecurity Certificate", org:"Prodigy", date:"1 to 31 May 2025", status:"Earned" },
+  { name:"Cybersecurity Certificate", org:"GrowIntern", date:"5 Jun to 5 Jul 2024", status:"Earned" },
+  { name:"Teaching Certificate in English", org:"Cadet College Petaro", date:"June 2025", status:"Earned" },
+  { name:"Python Internship", org:"CodexCue Software Solutions", date:"1 Jun to 9 Jul 2025", status:"Internship" },
+  { name:"Python Internship", org:"ProgrammerTech", date:"4 weeks", status:"Internship" }
+];
+
+const RESEARCH = [
+  { title:"Phishing email header forensics", summary:"Examined 15 phishing scenarios, validating SPF, DKIM and DMARC alignment and spotting domain spoofing and typosquatting.", method:"PhishTool, MXToolbox, URLScan.io, ELK", lesson:"Produced a five-step triage decision tree for SOC use." },
+  { title:"Brute-force logon investigation", summary:"Traced failed and successful Windows logons through Event IDs 4624 and 4625 and built an incident timeline.", method:"Splunk, Wazuh, Windows event logs", lesson:"Practised separating real attack patterns from normal login noise." },
+  { title:"End-to-end SOC incident capstone", summary:"Worked a full incident from detection through log analysis, IOC checks and ATT&CK mapping to a written report.", method:"Splunk, Wazuh, Wireshark, VirusTotal, AbuseIPDB", lesson:"Delivered a professional SOC incident report." }
+];
+
+/* =====================================================================
+   RENDERING AND BEHAVIOUR - no need to edit below for content changes
+   ===================================================================== */
+
+const $ = (sel, root = document) => root.querySelector(sel);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tagList = items => `<div class="tags">${items.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>`;
+const mount = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+
+function renderAchievements() {
+  mount("achievements", ACHIEVEMENTS.map(a => `<li>${esc(a)}</li>`).join(""));
+}
+
+function renderExperience() {
+  mount("experience-list", EXPERIENCE.map(e => `
+    <article class="card entry">
+      <header>
+        <div><h3>${esc(e.role)}</h3><div class="meta">${esc(e.org)} &middot; ${esc(e.dates)}</div></div>
+        <span class="badge alt">${esc(e.type)}</span>
+      </header>
+      <ul>${e.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+      ${e.note ? `<p class="note placeholder">${esc(e.note)}</p>` : ""}
+    </article>`).join(""));
+}
+
+function renderProjects() {
+  mount("project-list", PROJECTS.map(p => `
+    <article class="card proj">
+      <span class="badge">${esc(p.status)}</span>
+      <h3 style="margin-top:12px">${esc(p.title)}</h3>
+      <p class="meta" style="margin:4px 0 8px">${esc(p.year)}</p>
+      <p>${esc(p.overview)}</p>
+      <h4>Problem</h4><p>${esc(p.problem)}</p>
+      <h4>What I built</h4>
+      <ul>${p.built.map(b => `<li>${esc(b)}</li>`).join("")}</ul>
+      ${p.results ? `<p class="note">${esc(p.results)}</p>` : ""}
+      ${tagList(p.tech)}
+      ${p.links.length ? `<div class="links">${p.links.map(([l,u]) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(l)} on GitHub</a>`).join("")}</div>` : ""}
+    </article>`).join(""));
+}
+
+function renderSkills() {
+  mount("skill-list", Object.entries(SKILLS).map(([group, items]) =>
+    `<div class="card"><h3>${esc(group)}</h3>${tagList(items)}</div>`).join(""));
+}
+
+function renderCerts() {
+  mount("cert-list", CERTS.map(c => `
+    <div class="cert">
+      <div><strong>${esc(c.name)}</strong><div class="meta">${esc(c.org)} &middot; ${esc(c.date)}${c.link ? ` &middot; <a href="${esc(c.link)}" target="_blank" rel="noopener noreferrer">Verify</a>` : ""}</div></div>
+      <span class="badge alt">${esc(c.status)}</span>
+    </div>`).join(""));
+}
+
+function renderResearch() {
+  mount("research-list", RESEARCH.map(r => `
+    <article class="card proj">
+      <h3>${esc(r.title)}</h3>
+      <p style="margin-top:10px">${esc(r.summary)}</p>
+      <h4>Method</h4><p>${esc(r.method)}</p>
+      <h4>Outcome</h4><p>${esc(r.lesson)}</p>
+    </article>`).join(""));
+}
+
+function renderContact() {
+  const rows = [
+    ["Email", CONTACT.email, CONTACT.email && `mailto:${CONTACT.email}`],
+    ["GitHub", "github.com/MadihaSehar", CONTACT.github],
+    ["LinkedIn", CONTACT.linkedin || "Add your LinkedIn URL in the CONTACT object", CONTACT.linkedin],
+    ["Resume", "Download PDF", CONTACT.resume],
+    ["Phone", CONTACT.phone, null]
+  ];
+  mount("contact-list", rows.map(([k, v, href]) => href
+    ? `<a href="${esc(href)}"${href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}><span class="k">${k}</span><span>${esc(v)}</span></a>`
+    : `<span class="item${k === "LinkedIn" ? " placeholder" : ""}"><span class="k">${k}</span><span>${esc(v)}</span></span>`).join(""));
+}
+
+function setupResumeLink() {
+  const link = $("#resume-link");
+  if (link) link.href = CONTACT.resume;
+}
+
+function setupMobileMenu() {
+  const btn = $("#menu-btn"), menu = $("#nav-links");
+  if (!btn || !menu) return;
+  const set = open => { menu.classList.toggle("open", open); btn.setAttribute("aria-expanded", open); };
+  btn.addEventListener("click", () => set(!menu.classList.contains("open")));
+  menu.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+}
+
+function setupActiveSection() {
+  const links = [...document.querySelectorAll("#nav-links a")];
+  if (!("IntersectionObserver" in window)) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      links.forEach(a => {
+        const on = a.getAttribute("href") === "#" + en.target.id;
+        a.classList.toggle("active", on);
+        on ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current");
+      });
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main section[id]").forEach(s => obs.observe(s));
+}
+
+function init() {
+  renderAchievements(); renderExperience(); renderProjects(); renderSkills();
+  renderCerts(); renderResearch(); renderContact();
+  setupResumeLink(); setupMobileMenu(); setupActiveSection();
+  const y = $("#year"); if (y) y.textContent = "\u00A9 " + new Date().getFullYear();
+}
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
